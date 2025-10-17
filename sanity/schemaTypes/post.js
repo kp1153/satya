@@ -24,7 +24,7 @@ export default {
           return (
             input
               .toLowerCase()
-              .replace(/[\u0900-\u097F]/g, "") // हिंदी अक्षर हटाओ
+              .replace(/[\u0900-\u097F]/g, "")
               .replace(/[^\w\s-]/g, "")
               .trim()
               .replace(/\s+/g, "-")
@@ -35,6 +35,23 @@ export default {
         },
       },
       validation: (Rule) => Rule.required().error("URL Slug आवश्यक है"),
+    },
+    {
+      name: "category",
+      title: "श्रेणी (Parent)",
+      type: "reference",
+      to: [{ type: "category" }],
+      options: {
+        filter: "parent == null",
+      },
+      validation: (Rule) => Rule.required().error("श्रेणी का चुनाव आवश्यक है"),
+    },
+    {
+      name: "childCategory",
+      title: "Child Category (अगर लागू हो)",
+      type: "reference",
+      to: [{ type: "category" }],
+      description: "राज्य या अन्य child category के लिए",
     },
     {
       name: "content",
@@ -64,13 +81,6 @@ export default {
       type: "datetime",
       initialValue: () => new Date().toISOString(),
       validation: (Rule) => Rule.required().error("प्रकाशन तारीख आवश्यक है"),
-    },
-    {
-      name: "category",
-      title: "श्रेणी",
-      type: "reference",
-      to: [{ type: "category" }],
-      validation: (Rule) => Rule.required().error("श्रेणी का चुनाव आवश्यक है"),
     },
     {
       name: "views",

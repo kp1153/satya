@@ -1,3 +1,4 @@
+// Navbar.js
 "use client";
 
 import Link from "next/link";
@@ -38,26 +39,23 @@ export default function Navbar() {
   const [showStates, setShowStates] = useState(false);
 
   return (
-    <nav className="bg-red-600 text-white sticky top-0 z-50">
+    <nav className="bg-[#006680] text-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Logo */}
-        <div className="py-3 text-center border-b border-red-700">
-          <Link href="/" className="text-2xl md:text-3xl font-bold">
-            हरकारा
+        <div className="py-3 text-center border-b border-white/20">
+          <Link href="/" className="flex items-center justify-center">
+            <img src="/dolatti.png" alt="दोलत्ती" className="h-12 md:h-16" />
           </Link>
         </div>
 
-        {/* Menu */}
         <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 py-3 text-sm md:text-base">
-          <Link href="/desh" className="hover:text-red-200 transition">
+          <Link href="/desh" className="hover:text-gray-200 transition">
             देश
           </Link>
 
-          {/* States Dropdown */}
           <div className="relative">
             <button
               onClick={() => setShowStates(!showStates)}
-              className="hover:text-red-200 transition"
+              className="hover:text-gray-200 transition"
             >
               राज्य ▼
             </button>
@@ -69,7 +67,7 @@ export default function Navbar() {
                     key={s.slug}
                     href={`/rajya/${s.slug}`}
                     onClick={() => setShowStates(false)}
-                    className="block px-4 py-2 hover:bg-red-50 text-sm"
+                    className="block px-4 py-2 hover:bg-gray-100 text-sm"
                   >
                     {s.title}
                   </Link>
@@ -78,27 +76,27 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="/rajneeti" className="hover:text-red-200 transition">
+          <Link href="/rajneeti" className="hover:text-gray-200 transition">
             राजनीति
           </Link>
 
-          <Link href="/duniya" className="hover:text-red-200 transition">
+          <Link href="/duniya" className="hover:text-gray-200 transition">
             दुनिया
           </Link>
 
-          <Link href="/vishleshan" className="hover:text-red-200 transition">
+          <Link href="/vishleshan" className="hover:text-gray-200 transition">
             विश्लेषण
           </Link>
 
-          <Link href="/vichar" className="hover:text-red-200 transition">
+          <Link href="/vichar" className="hover:text-gray-200 transition">
             विचार
           </Link>
 
-          <Link href="/video" className="hover:text-red-200 transition">
+          <Link href="/video" className="hover:text-gray-200 transition">
             वीडियो
           </Link>
 
-          <Link href="/waqt-bewaqt" className="hover:text-red-200 transition">
+          <Link href="/waqt-bewaqt" className="hover:text-gray-200 transition">
             वक़्त-बेवक़्त
           </Link>
         </div>

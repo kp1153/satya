@@ -5,35 +5,33 @@ import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 
-// Category display names mapping for हरकारा
 const getCategoryDisplayName = (route) => {
   const displayNames = {
     desh: "देश",
-    rajya: "राज्य",
     rajneeti: "राजनीति",
     duniya: "दुनिया",
     vishleshan: "विश्लेषण",
     vichar: "विचार",
     video: "वीडियो",
     "waqt-bewaqt": "वक़्त-बेवक़्त",
+    rajya: "राज्य",
   };
   return displayNames[route] || route;
 };
 
 export default async function CategoryPage({ params }) {
-  const { category } = params;
+  const { category } = await params;
   const safeCategory = decodeURIComponent(category);
 
-  // Valid categories for हरकारा
   const validCategories = [
     "desh",
-    "rajya",
     "rajneeti",
     "duniya",
     "vishleshan",
     "vichar",
     "video",
     "waqt-bewaqt",
+    "rajya",
   ];
 
   if (!validCategories.includes(safeCategory)) {
@@ -125,7 +123,7 @@ export default async function CategoryPage({ params }) {
 
             <div className="p-6">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-xs bg-red-600 text-white px-3 py-1 rounded-full font-semibold">
+                <span className="text-xs bg-blue-600 text-white px-3 py-1 rounded-full font-semibold">
                   {post.category?.name || "सामान्य"}
                 </span>
                 <span className="text-xs text-gray-500 font-medium">
@@ -136,7 +134,7 @@ export default async function CategoryPage({ params }) {
               <h2 className="text-xl font-bold mb-4 text-gray-900 leading-tight">
                 <Link
                   href={`/${safeCategory}/${post.slug.current}`}
-                  className="hover:underline hover:text-red-700 transition-colors"
+                  className="hover:underline hover:text-blue-700 transition-colors"
                 >
                   {post.title}
                 </Link>
@@ -144,7 +142,7 @@ export default async function CategoryPage({ params }) {
 
               <Link
                 href={`/${safeCategory}/${post.slug.current}`}
-                className="inline-flex items-center text-red-600 hover:text-red-800 font-semibold text-sm hover:underline transition-colors"
+                className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-sm hover:underline transition-colors"
               >
                 पूरी खबर पढ़ें
                 <svg
