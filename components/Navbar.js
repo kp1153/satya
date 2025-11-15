@@ -43,7 +43,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="py-3 text-center border-b border-white/20">
           <Link href="/" className="flex items-center justify-center">
-            <img src="/dolatti.png" alt="दोलत्ती" className="h-12 md:h-16" />
+            <img src="/logo.jpg" alt="Logo" className="h-12 md:h-16" />
           </Link>
         </div>
 
