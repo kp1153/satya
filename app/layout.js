@@ -15,8 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "हुजूर यह रही आपकी खबर, क्लिक कीजिए",
-  description: "दिगंत-अद्वय की युवा टीम द्वारा संचालित",
+  title:
+    "मैं कीचड़ में लोटने वाला वही सूअर हूँ, जिसने वेब डेवलपर का मेहनताना नहीं दिया",
+  description:
+    "मैं इतना घिनहा हूँ कि जबरी हर दिन 4 हजार लोगों के ईमेल पर अपनी सड़ियल लेखनी घुसेड़ता रहता हूँ।",
 };
 
 export default function RootLayout({ children }) {
