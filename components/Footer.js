@@ -16,23 +16,14 @@ export default function Footer() {
             © {currentYear} सर्वाधिकार सुरक्षित।
           </p>
 
-          <div className="flex gap-6 text-sm items-center">
-            <Link
-              href="/privacy"
-              className="hover:text-white transition-colors"
-            >
-              गोपनीयता नीति
-            </Link>
-
-            <Link
-              href="https://nfiw.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 transition-colors"
-            >
-              Web Developer: Creative Solutions
-            </Link>
-          </div>
+          <Link
+            href="https://nfiw.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-300 transition-colors text-sm"
+          >
+            Web Developer: Creative Solutions
+          </Link>
         </div>
       </div>
     </footer>
