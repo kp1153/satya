@@ -10,13 +10,6 @@ export default function Footer() {
           <h3 className="text-white text-2xl font-bold mb-4">
             हरियाणा जन संदेश
           </h3>
-          <p className="text-gray-400 mb-4 leading-relaxed max-w-2xl mx-auto">
-            हरियाणा और देश की सच्ची खबरें, निष्पक्ष पत्रकारिता और जनता की आवाज
-            का मंच।
-          </p>
-          <p className="text-[#006680] font-semibold text-lg">
-            सत्य का साथ, जनता के साथ
-          </p>
         </div>
 
         {/* Bottom Bar */}
@@ -33,7 +26,7 @@ export default function Footer() {
               href="https://nfiw.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition"
+              className="text-pink-500 hover:text-white transition"
             >
               Web Developer: Creative Solutions
             </a>
