@@ -9,13 +9,13 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/", label: "होम" },
-    { href: "/desh", label: "देश" },
-    { href: "/duniya", label: "दुनिया" },
-    { href: "/rajneeti", label: "राजनीति" },
-    { href: "/vishleshan", label: "विश्लेषण" },
-    { href: "/vichar", label: "खरी-खरी" },
-    { href: "/video", label: "इंटरव्यू" },
-    { href: "/waqt-bewaqt", label: "कला-साहित्य" },
+    { href: "/desh", label: "भारत" },
+    { href: "/duniya", label: "विश्व" },
+    { href: "/rajneeti", label: "पंजाब" },
+    { href: "/vishleshan", label: "खेल" },
+    { href: "/vichar", label: "मनोरंजन" },
+    { href: "/video", label: "कॉमर्स" },
+    { href: "/waqt-bewaqt", label: "विविध" },
   ];
 
   return (
@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="py-4 text-center border-b border-white/20 flex items-center justify-between md:justify-center">
           <Link href="/" className="flex-1 md:flex-none text-center">
             <h1 className="text-2xl md:text-3xl font-bold mb-1">
-              हरियाणा जन संदेश
+              टेलीस्कोप टाइम्स
             </h1>
           </Link>
           <button
