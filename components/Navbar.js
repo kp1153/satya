@@ -7,15 +7,15 @@ import { useState } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
+const navLinks = [
     { href: "/", label: "होम" },
-    { href: "/desh", label: "भारत" },
-    { href: "/duniya", label: "विश्व" },
-    { href: "/rajneeti", label: "पंजाब" },
-    { href: "/vishleshan", label: "खेल" },
-    { href: "/vichar", label: "मनोरंजन" },
-    { href: "/video", label: "कॉमर्स" },
-    { href: "/waqt-bewaqt", label: "विविध" },
+    { href: "/bharat", label: "भारत" },
+    { href: "/vishwa", label: "विश्व" },
+    { href: "/punjab", label: "पंजाब" },
+    { href: "/khel", label: "खेल" },
+    { href: "/manoranjan", label: "मनोरंजन" },
+    { href: "/commerce", label: "कॉमर्स" },
+    { href: "/vividh", label: "विविध" },
   ];
 
   return (

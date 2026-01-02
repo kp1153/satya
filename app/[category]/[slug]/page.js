@@ -11,13 +11,13 @@ export const dynamic = "force-dynamic";
 
 const getCategoryDisplayName = (route) => {
   const displayNames = {
-    desh: "देश",
-    duniya: "दुनिया",
-    rajneeti: "राजनीति",
-    vishleshan: "विश्लेषण",
-    vichar: "खरी-खरी",
-    video: "इंटरव्यू",
-    "waqt-bewaqt": "कला-साहित्य",
+    desh: "भारत",
+    duniya: "विश्व",
+    punjab: "पंजाब",
+    khel: "खेल",
+    manoranjan: "मनोरंजन",
+    commerce: "कॉमर्स",
+    vividh: "विविध",
   };
   return displayNames[route] || route;
 };
@@ -30,11 +30,11 @@ export default async function NewsPage({ params }) {
   const validCategories = [
     "desh",
     "duniya",
-    "rajneeti",
-    "vishleshan",
-    "vichar",
-    "video",
-    "waqt-bewaqt",
+    "punjab",
+    "khel",
+    "manoranjan",
+    "commerce",
+    "vividh",
   ];
 
   const post = await getPostBySlugAndCategory(safeSlug, safeCategory);
@@ -56,10 +56,9 @@ export default async function NewsPage({ params }) {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs uppercase font-bold text-gray-500 mb-6 border-b pb-3">
         <Link href="/" className="hover:text-[#006680]">
-          Home
+          होम
         </Link>
         <ChevronRight size={12} />
         <Link href={`/${safeCategory}`} className="hover:text-[#006680]">
@@ -69,7 +68,6 @@ export default async function NewsPage({ params }) {
         <span className="text-gray-800">{post.title}</span>
       </div>
 
-      {/* Category Tag */}
       <span className="bg-[#006680] text-white text-xs px-2 py-1 rounded-sm">
         {categoryDisplayName}
       </span>
@@ -86,7 +84,6 @@ export default async function NewsPage({ params }) {
         <ViewsCounter slug={safeSlug} initialViews={post.views || 0} />
       </div>
 
-      {/* Feature Image */}
       {post.mainImageUrl && (
         <Image
           src={post.mainImageUrl}

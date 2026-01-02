@@ -7,17 +7,16 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
-// 🟢 CATEGORY NAME FIX (Navbar के अनुसार)
 const formatCategory = (c) => {
-  if (!c) return "News";
+  if (!c) return "समाचार";
   const map = {
-    desh: "देश",
-    duniya: "दुनिया",
-    rajneeti: "राजनीति",
-    vishleshan: "विश्लेषण",
-    vichar: "खरी-खरी",
-    video: "इंटरव्यू",
-    "waqt-bewaqt": "कला-साहित्य",
+    desh: "भारत",
+    duniya: "विश्व",
+    punjab: "पंजाब",
+    khel: "खेल",
+    manoranjan: "मनोरंजन",
+    commerce: "कॉमर्स",
+    vividh: "विविध",
   };
   return map[c] || c;
 };
@@ -49,7 +48,6 @@ export default async function Page() {
 
   return (
     <div className="font-['Open_Sans'] text-stone-800">
-      {/* Breaking News */}
       <div className="mb-8">
         <div className="flex items-center bg-white border shadow-sm h-10 overflow-hidden">
           <div className="bg-red-600 text-white px-4 text-[10px] font-bold uppercase flex items-center">
@@ -69,7 +67,6 @@ export default async function Page() {
         </div>
       </div>
 
-      {/* Featured Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 mb-12">
         {featured && (
           <div className="lg:col-span-2 relative group overflow-hidden h-[450px]">
@@ -89,7 +86,6 @@ export default async function Page() {
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-8">
-                  {/* 🟢 Category Label Updated */}
                   <span className="bg-[#006680] text-white text-[10px] font-bold px-2 py-1 inline-block">
                     {formatCategory(featured.category?.slug?.current)}
                   </span>
@@ -136,7 +132,6 @@ export default async function Page() {
         </div>
       </div>
 
-      {/* MAIN LIST */}
       <div className="grid grid-cols-12 gap-8">
         <div className="col-span-12 lg:col-span-8">
           <h3 className="bg-[#006680] text-white text-sm px-3 py-1 inline-block mb-6">
@@ -196,9 +191,7 @@ export default async function Page() {
           </div>
         </div>
 
-        {/* Sidebar */}
         <div className="col-span-12 lg:col-span-4 space-y-8">
-          {/* Popular Widget */}
           <div className="bg-white border p-4 shadow-sm">
             <h4 className="bg-[#006680] text-white text-xs px-2 py-1 inline-block mb-3">
               लोकप्रिय

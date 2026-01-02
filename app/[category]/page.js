@@ -8,13 +8,13 @@ export const dynamic = "force-dynamic";
 
 const getCategoryDisplayName = (route) => {
   const displayNames = {
-    desh: "देश",
-    duniya: "दुनिया",
-    rajneeti: "राजनीति",
-    vishleshan: "विश्लेषण",
-    vichar: "खरी-खरी",
-    video: "इंटरव्यू",
-    "waqt-bewaqt": "कला-साहित्य",
+    desh: "भारत",
+    duniya: "विश्व",
+    punjab: "पंजाब",
+    khel: "खेल",
+    manoranjan: "मनोरंजन",
+    commerce: "कॉमर्स",
+    vividh: "विविध",
   };
   return displayNames[route] || route;
 };
@@ -28,10 +28,9 @@ export default async function CategoryPage({ params }) {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs uppercase font-bold text-gray-500 mb-6">
         <Link href="/" className="hover:text-[#006680]">
-          Home
+          होम
         </Link>
         <ChevronRight size={12} />
         <span className="text-gray-800">{categoryDisplayName}</span>
