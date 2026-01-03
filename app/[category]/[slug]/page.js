@@ -2,17 +2,18 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getPostBySlugAndCategory, urlFor } from "@/lib/sanity";
+import { getPostBySlugAndCategory } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
+import PortableTextComponents from "@/components/PortableTextComponents";
 import ViewsCounter from "@/components/ViewsCounter";
-import { ChevronRight, Calendar, User, Share2 } from "lucide-react";
+import { ChevronRight, Calendar, User } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
 const getCategoryDisplayName = (route) => {
   const displayNames = {
-    desh: "भारत",
-    duniya: "विश्व",
+    bharat: "भारत",
+    vishwa: "विश्व",
     punjab: "पंजाब",
     khel: "खेल",
     manoranjan: "मनोरंजन",
@@ -26,16 +27,6 @@ export default async function NewsPage({ params }) {
   const { category, slug } = await params;
   const safeCategory = decodeURIComponent(category);
   const safeSlug = decodeURIComponent(slug);
-
-  const validCategories = [
-    "desh",
-    "duniya",
-    "punjab",
-    "khel",
-    "manoranjan",
-    "commerce",
-    "vividh",
-  ];
 
   const post = await getPostBySlugAndCategory(safeSlug, safeCategory);
   if (!post) return notFound();
@@ -90,11 +81,17 @@ export default async function NewsPage({ params }) {
           alt="main image"
           width={1200}
           height={700}
+          sizes="(max-width: 768px) 100vw, 1200px"
           className="rounded mb-8"
         />
       )}
 
-      <PortableText value={post.content} />
+      <div className="prose prose-lg max-w-none">
+        <PortableText 
+          value={post.content} 
+          components={PortableTextComponents}
+        />
+      </div>
     </div>
   );
 }

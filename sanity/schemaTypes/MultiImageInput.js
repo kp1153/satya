@@ -22,7 +22,10 @@ export default function MultiImageInput(props) {
         try {
           const formData = new FormData();
           formData.append("file", file);
-          formData.append("upload_preset", "dulatti");
+          formData.append(
+            "upload_preset",
+            process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
+          );
           formData.append("folder", "sanity-gallery");
 
           const response = await fetch(

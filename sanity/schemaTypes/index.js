@@ -1,5 +1,3 @@
-// sanity/schemaTypes/index.js
-
 import MultiImageInput from "./MultiImageInput";
 import CloudinaryImageInput from "./CloudinaryImageInput";
 
@@ -220,12 +218,6 @@ export const schema = {
           },
           validation: (Rule) => Rule.required().error("Slug is required"),
         },
-        {
-          name: "description",
-          title: "Description",
-          type: "text",
-          rows: 3,
-        },
       ],
       preview: {
         select: {
@@ -301,12 +293,6 @@ export const schema = {
           type: "reference",
           to: [{ type: "category" }],
           validation: (Rule) => Rule.required().error("Category is required"),
-        },
-        {
-          name: "videoLink",
-          title: "Video Link",
-          type: "url",
-          validation: (Rule) => Rule.uri({ scheme: ["http", "https"] }),
         },
         {
           name: "views",
@@ -489,4 +475,5 @@ export const schema = {
     },
   ],
 };
+
 export default schema;

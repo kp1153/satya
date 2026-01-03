@@ -10,8 +10,8 @@ export const dynamic = "force-dynamic";
 const formatCategory = (c) => {
   if (!c) return "समाचार";
   const map = {
-    desh: "भारत",
-    duniya: "विश्व",
+    bharat: "भारत",
+    vishwa: "विश्व",
     punjab: "पंजाब",
     khel: "खेल",
     manoranjan: "मनोरंजन",
@@ -79,6 +79,8 @@ export default async function Page() {
                     src={featured.mainImage}
                     alt={featured.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 66vw"
+                    priority={true}
                     className="object-cover group-hover:scale-105 duration-700"
                   />
                 ) : (
@@ -114,6 +116,7 @@ export default async function Page() {
                   src={item.mainImage}
                   alt={item.title}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover group-hover:scale-105 duration-700"
                 />
               ) : (
@@ -150,6 +153,7 @@ export default async function Page() {
                       <Image
                         src={item.mainImage}
                         fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
                         alt={item.title}
                         className="object-cover"
                       />
@@ -209,6 +213,7 @@ export default async function Page() {
                       <Image
                         src={item.mainImage}
                         fill
+                        sizes="80px"
                         alt={item.title}
                         className="object-cover"
                       />

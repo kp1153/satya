@@ -8,8 +8,8 @@ export const dynamic = "force-dynamic";
 
 const getCategoryDisplayName = (route) => {
   const displayNames = {
-    desh: "भारत",
-    duniya: "विश्व",
+    bharat: "भारत",
+    vishwa: "विश्व",
     punjab: "पंजाब",
     khel: "खेल",
     manoranjan: "मनोरंजन",
@@ -50,6 +50,7 @@ export default async function CategoryPage({ params }) {
                 src={post.mainImage}
                 alt={post.title}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover group-hover:scale-105 duration-500"
               />
             </div>
