@@ -1,13 +1,12 @@
 // components/Navbar.js
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-const navLinks = [
+  const navLinks = [
     { href: "/", label: "होम" },
     { href: "/bharat", label: "भारत" },
     { href: "/vishwa", label: "विश्व" },
@@ -17,28 +16,31 @@ const navLinks = [
     { href: "/commerce", label: "कॉमर्स" },
     { href: "/vividh", label: "विविध" },
   ];
-
   return (
-    <nav className="bg-[#006680] text-white">
+    <nav className="bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="py-4 text-center border-b border-white/20 flex items-center justify-between md:justify-center">
+        <div className="py-4 text-center border-b border-gray-200 flex items-center justify-between md:justify-center">
           <Link href="/" className="flex-1 md:flex-none text-center">
-            <h1 className="text-2xl md:text-3xl font-bold mb-1">
-              टेलीस्कोप टाइम्स
-            </h1>
+            <Image 
+              src="/logo.jpg" 
+              alt="The Telescope" 
+              width={400} 
+              height={80}
+              className="mx-auto"
+              priority
+            />
           </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-white/10 rounded"
+            className="md:hidden p-2 hover:bg-gray-100 rounded text-gray-800"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
-        {/* Desktop + Mobile Menu */}
-        <div className={`${isOpen ? "block" : "hidden"} md:block`}>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-3 md:gap-6 py-3 text-sm md:text-base">
+        
+        <div className={`${isOpen ? "block" : "hidden"} md:block`} style={{backgroundColor: 'rgb(255, 23, 76)'}}>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-3 md:gap-6 py-3 text-sm md:text-base text-white">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
