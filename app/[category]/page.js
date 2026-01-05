@@ -15,6 +15,7 @@ const getCategoryDisplayName = (route) => {
     manoranjan: "मनोरंजन",
     commerce: "कॉमर्स",
     vividh: "विविध",
+    team: "टीम", 
   };
   return displayNames[route] || route;
 };

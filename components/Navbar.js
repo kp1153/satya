@@ -4,18 +4,23 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+
+const navLinks = [
+  { href: "/", label: "होम" },
+  { href: "/bharat", label: "भारत" },
+  { href: "/vishwa", label: "विश्व" },
+  { href: "/punjab", label: "पंजाब" },
+  { href: "/khel", label: "खेल" },
+  { href: "/manoranjan", label: "मनोरंजन" },
+  { href: "/commerce", label: "कॉमर्स" },
+  { href: "/vividh", label: "विविध" },
+  { href: "/sanad-rahe", label: "सनद रहे" },
+  { href: "/team", label: "टीम" },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const navLinks = [
-    { href: "/", label: "होम" },
-    { href: "/bharat", label: "भारत" },
-    { href: "/vishwa", label: "विश्व" },
-    { href: "/punjab", label: "पंजाब" },
-    { href: "/khel", label: "खेल" },
-    { href: "/manoranjan", label: "मनोरंजन" },
-    { href: "/commerce", label: "कॉमर्स" },
-    { href: "/vividh", label: "विविध" },
-  ];
+
   return (
     <nav className="bg-white">
       <div className="max-w-7xl mx-auto px-4">
