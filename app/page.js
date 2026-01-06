@@ -8,6 +8,9 @@ export const dynamic = "force-dynamic";
 export default async function Page() {
   const posts = await getAllPosts();
 
+  console.log("Posts data:", posts);
+  console.log("First post mainImage:", posts[0]?.mainImage);
+
   if (!posts || posts.length === 0) {
     return (
       <div className="max-w-6xl mx-auto px-4 py-8 text-center">

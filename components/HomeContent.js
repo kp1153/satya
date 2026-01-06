@@ -111,14 +111,13 @@ export default function HomeContent({ posts = [] }) {
             {sliderPosts[currentSlide] && (
               <Link href={`/${sliderPosts[currentSlide].category?.slug?.current}/${sliderPosts[currentSlide].slug.current}`}>
                 <div className="relative w-full h-full">
-                  {sliderPosts[currentSlide].mainImageUrl ? (
+                  {sliderPosts[currentSlide].mainImage ? (
                     <Image
-                      src={sliderPosts[currentSlide].mainImageUrl}
+                      src={sliderPosts[currentSlide].mainImage}
                       alt={sliderPosts[currentSlide].title}
                       fill
                       priority
                       className="object-cover group-hover:scale-105 duration-700"
-                      unoptimized
                     />
                   ) : (
                     <div className="w-full h-full bg-gray-300" />
@@ -147,8 +146,8 @@ export default function HomeContent({ posts = [] }) {
               >
                 <div className="flex gap-3">
                   <div className="w-20 h-16 relative flex-shrink-0">
-                    {post.mainImageUrl ? (
-                      <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover" unoptimized />
+                    {post.mainImage ? (
+                      <Image src={post.mainImage} alt={post.title} fill className="object-cover" />
                     ) : (
                       <div className="w-full h-full bg-gray-200" />
                     )}
@@ -174,8 +173,8 @@ export default function HomeContent({ posts = [] }) {
                   {bharatPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        {post.mainImageUrl ? (
-                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
                         ) : (
                           <div className="w-full h-full bg-gray-200" />
                         )}
@@ -199,8 +198,8 @@ export default function HomeContent({ posts = [] }) {
                   {vishwaPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        {post.mainImageUrl ? (
-                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
                         ) : (
                           <div className="w-full h-full bg-gray-200" />
                         )}
@@ -224,8 +223,8 @@ export default function HomeContent({ posts = [] }) {
                   {punjabPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        {post.mainImageUrl ? (
-                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
                         ) : (
                           <div className="w-full h-full bg-gray-200" />
                         )}
@@ -249,8 +248,8 @@ export default function HomeContent({ posts = [] }) {
                   {khelPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        {post.mainImageUrl ? (
-                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
                         ) : (
                           <div className="w-full h-full bg-gray-200" />
                         )}
@@ -274,8 +273,8 @@ export default function HomeContent({ posts = [] }) {
                   {manoranjanPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        {post.mainImageUrl ? (
-                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
                         ) : (
                           <div className="w-full h-full bg-gray-200" />
                         )}
@@ -299,8 +298,8 @@ export default function HomeContent({ posts = [] }) {
                   {commercePosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        {post.mainImageUrl ? (
-                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
                         ) : (
                           <div className="w-full h-full bg-gray-200" />
                         )}
@@ -324,8 +323,8 @@ export default function HomeContent({ posts = [] }) {
                   {vividhPosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        {post.mainImageUrl ? (
-                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
                         ) : (
                           <div className="w-full h-full bg-gray-200" />
                         )}
@@ -349,8 +348,8 @@ export default function HomeContent({ posts = [] }) {
                   {sanadRahePosts.map((post) => (
                     <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        {post.mainImageUrl ? (
-                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        {post.mainImage ? (
+                          <Image src={post.mainImage} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" />
                         ) : (
                           <div className="w-full h-full bg-gray-200" />
                         )}
@@ -394,8 +393,8 @@ export default function HomeContent({ posts = [] }) {
                 {sidebarWithImage.map((post, idx) => (
                   <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="flex gap-3 border-b pb-3 last:border-none group">
                     <div className="w-20 h-16 relative flex-shrink-0 overflow-hidden">
-                      {post.mainImageUrl ? (
-                        <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover" unoptimized />
+                      {post.mainImage ? (
+                        <Image src={post.mainImage} alt={post.title} fill className="object-cover" />
                       ) : (
                         <div className="w-full h-full bg-gray-200" />
                       )}
