@@ -5,23 +5,23 @@ import Link from "next/link";
 import { getPostBySlugAndCategory } from "@/lib/sanity";
 import { PortableText } from "@portabletext/react";
 import PortableTextComponents from "@/components/PortableTextComponents";
-import ViewsCounter from "@/components/ViewsCounter";
 import { ChevronRight, Calendar, User, Edit } from "lucide-react";
+import ViewsCounter from "@/components/ViewsCounter";
 
 export const dynamic = "force-dynamic";
 
 const getCategoryDisplayName = (route) => {
-  const displayNames = {
-    bharat: "भारत",
-    vishwa: "विश्व",
-    punjab: "पंजाब",
-    khel: "खेल",
-    manoranjan: "मनोरंजन",
-    commerce: "कॉमर्स",
-    vividh: "विविध",
-    "sanad-rahe": "सनद रहे",
-    team: "टीम",
-  };
+const displayNames = {
+  bharat: "भारत",
+  vishwa: "विश्व",
+  punjab: "पंजाब",
+  khel: "खेल",
+  manoranjan: "मनोरंजन",
+  commerce: "कॉमर्स",
+  vividh: "विविध",
+  "sanad-rahe": "सनद रहे",
+  team: "टीम",
+};
   return displayNames[route] || route;
 };
 
@@ -29,11 +29,10 @@ export default async function NewsPage({ params }) {
   const { category, slug } = await params;
   const safeCategory = decodeURIComponent(category);
   const safeSlug = decodeURIComponent(slug);
-  
+
   const post = await getPostBySlugAndCategory(safeSlug, safeCategory);
-  
   if (!post) return notFound();
-  
+
   const formatDate = (dateString) => {
     if (!dateString) return "";
     const date = new Date(dateString);
@@ -45,12 +44,20 @@ export default async function NewsPage({ params }) {
       minute: "2-digit",
     });
   };
-  
+
   const categoryDisplayName = getCategoryDisplayName(safeCategory);
-  
+
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Edit Button */}
+      <a 
+       href={`https://www.telescopetimes.com/studio/structure/post;${post._id}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-blue-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-blue-700 flex items-center gap-2 z-50"
+      >
+        <Edit size={18} />
+        एडिट करें
+      </a>
       <a 
         href={`https://www.telescopetimes.com/studio/structure/post;${post._id}`}
         target="_blank"
@@ -60,7 +67,7 @@ export default async function NewsPage({ params }) {
         <Edit size={18} />
         एडिट करें
       </a>
-      
+
       <div className="flex items-center gap-2 text-xs uppercase font-bold text-gray-500 mb-6 border-b pb-3">
         <Link href="/" className="hover:text-[#006680]">
           होम
@@ -73,11 +80,39 @@ export default async function NewsPage({ params }) {
         <span className="text-gray-800">{post.title}</span>
       </div>
 
-      <span className="bg-[#006680] text-white text-xs px-2 py-1 rounded mb-4 inline-block">
+      <span className="bg-[#006680] text-white text-xs px-2 py-1 rounded-sm">
         {categoryDisplayName}
       </span>
 
-      {/* यहाँ बाकी का content जोड़ें */}
+      <h1 className="text-4xl font-bold my-4">{post.title}</h1>
+
+      <div className="flex gap-4 text-sm text-gray-500 border-y py-2 mb-6">
+        <span className="flex items-center gap-1">
+          <User size={14} /> संपादकीय टीम
+        </span>
+        <span className="flex items-center gap-1">
+          <Calendar size={14} /> {formatDate(post.publishedAt)}
+        </span>
+        <ViewsCounter slug={safeSlug} initialViews={post.views || 0} />
+      </div>
+
+      {post.mainImageUrl && (
+        <Image
+          src={post.mainImage}
+          alt="main image"
+          width={1200}
+          height={700}
+          sizes="(max-width: 768px) 100vw, 1200px"
+          className="rounded mb-8"
+        />
+      )}
+
+      <div className="prose prose-lg max-w-none">
+        <PortableText 
+          value={post.content} 
+          components={PortableTextComponents}
+        />
+      </div>
     </div>
   );
 }
