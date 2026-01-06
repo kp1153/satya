@@ -61,18 +61,23 @@ export default async function NewsPage({ params }) {
         एडिट करें
       </a>
       
-     <div className="flex items-center gap-2 text-xs uppercase font-bold text-gray-500 mb-6 border-b pb-3">
-  <Link href="/" className="hover:text-[#006680]">
-    होम
-  </Link>
-  <ChevronRight size={12} />
-  <Link href={`/${safeCategory}`} className="hover:text-[#006680]">
-    {categoryDisplayName}
-  </Link>
-  <ChevronRight size={12} />
-  <span className="text-gray-800">{post.title}</span>
-</div>
+      <div className="flex items-center gap-2 text-xs uppercase font-bold text-gray-500 mb-6 border-b pb-3">
+        <Link href="/" className="hover:text-[#006680]">
+          होम
+        </Link>
+        <ChevronRight size={12} />
+        <Link href={`/${safeCategory}`} className="hover:text-[#006680]">
+          {categoryDisplayName}
+        </Link>
+        <ChevronRight size={12} />
+        <span className="text-gray-800">{post.title}</span>
+      </div>
 
-<span className="bg-[#006680] text-white text-xs px-2 py-1 rounded">
-  {categoryDisplayName}
-</span>
+      <span className="bg-[#006680] text-white text-xs px-2 py-1 rounded mb-4 inline-block">
+        {categoryDisplayName}
+      </span>
+
+      {/* यहाँ बाकी का content जोड़ें */}
+    </div>
+  );
+}
