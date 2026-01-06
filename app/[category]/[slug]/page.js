@@ -11,16 +11,18 @@ import { ChevronRight, Calendar, User } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 const getCategoryDisplayName = (route) => {
-  const displayNames = {
-    bharat: "भारत",
-    vishwa: "विश्व",
-    punjab: "पंजाब",
-    khel: "खेल",
-    manoranjan: "मनोरंजन",
-    commerce: "कॉमर्स",
-    vividh: "विविध",
-    team: "टीम", 
-  };
+const displayNames = {
+  bharat: "भारत",
+  vishwa: "विश्व",
+  punjab: "पंजाब",
+  khel: "खेल",
+  manoranjan: "मनोरंजन",
+  commerce: "कॉमर्स",
+  vividh: "विविध",
+  "sanad-rahe": "सनद रहे",
+  team: "टीम",
+};
+
   return displayNames[route] || route;
 };
 

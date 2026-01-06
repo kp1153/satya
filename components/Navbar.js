@@ -31,7 +31,7 @@ export default function Navbar() {
               alt="The Telescope" 
               width={400} 
               height={80}
-              className="mx-auto"
+              className="mx-auto max-w-full h-auto"
               priority
             />
           </Link>

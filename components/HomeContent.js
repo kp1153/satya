@@ -43,7 +43,7 @@ const getCategoryColor = (categorySlug) => {
   return colors[categorySlug] || "rgb(255, 23, 76)";
 };
 
-export default function HomeContent({ posts = [], categories = [], popularPosts = [] }) {
+export default function HomeContent({ posts = [] }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderPosts = posts.slice(0, 5);
 
@@ -69,8 +69,12 @@ export default function HomeContent({ posts = [], categories = [], popularPosts 
   const vishwaPosts = posts.filter(p => p.category?.slug?.current === "vishwa").slice(0, 4);
   const punjabPosts = posts.filter(p => p.category?.slug?.current === "punjab").slice(0, 4);
   const khelPosts = posts.filter(p => p.category?.slug?.current === "khel").slice(0, 4);
+  const manoranjanPosts = posts.filter(p => p.category?.slug?.current === "manoranjan").slice(0, 4);
+  const commercePosts = posts.filter(p => p.category?.slug?.current === "commerce").slice(0, 4);
+  const vividhPosts = posts.filter(p => p.category?.slug?.current === "vividh").slice(0, 4);
   const sanadRahePosts = posts.filter(p => p.category?.slug?.current === "sanad-rahe").slice(0, 4);
   const sidebarTextOnly = posts.slice(5, 13);
+  const sidebarWithImage = posts.slice(13, 18);
 
   if (!posts || posts.length === 0) {
     return (
@@ -261,6 +265,81 @@ export default function HomeContent({ posts = [], categories = [], popularPosts 
               </section>
             )}
 
+            {manoranjanPosts.length > 0 && (
+              <section>
+                <h3 style={{backgroundColor: getCategoryColor("manoranjan")}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
+                  मनोरंजन
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {manoranjanPosts.map((post) => (
+                    <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        {post.mainImageUrl ? (
+                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        ) : (
+                          <div className="w-full h-full bg-gray-200" />
+                        )}
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-bold text-base leading-snug group-hover:text-purple-600 mb-2">{post.title}</h4>
+                        <p className="text-xs text-gray-500">{formatDate(post.publishedAt)}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {commercePosts.length > 0 && (
+              <section>
+                <h3 style={{backgroundColor: getCategoryColor("commerce")}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
+                  कॉमर्स
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {commercePosts.map((post) => (
+                    <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        {post.mainImageUrl ? (
+                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        ) : (
+                          <div className="w-full h-full bg-gray-200" />
+                        )}
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-bold text-base leading-snug group-hover:text-sky-600 mb-2">{post.title}</h4>
+                        <p className="text-xs text-gray-500">{formatDate(post.publishedAt)}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {vividhPosts.length > 0 && (
+              <section>
+                <h3 style={{backgroundColor: getCategoryColor("vividh")}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
+                  विविध
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {vividhPosts.map((post) => (
+                    <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="bg-white group">
+                      <div className="relative aspect-[16/10] overflow-hidden">
+                        {post.mainImageUrl ? (
+                          <Image src={post.mainImageUrl} alt={post.title} fill className="object-cover group-hover:scale-105 duration-500" unoptimized />
+                        ) : (
+                          <div className="w-full h-full bg-gray-200" />
+                        )}
+                      </div>
+                      <div className="p-4">
+                        <h4 className="font-bold text-base leading-snug group-hover:text-amber-600 mb-2">{post.title}</h4>
+                        <p className="text-xs text-gray-500">{formatDate(post.publishedAt)}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
             {sanadRahePosts.length > 0 && (
               <section>
                 <h3 style={{backgroundColor: getCategoryColor("sanad-rahe")}} className="text-white text-sm font-bold px-4 py-2 inline-block mb-4">
@@ -298,7 +377,7 @@ export default function HomeContent({ posts = [], categories = [], popularPosts 
                     <div className="flex gap-2">
                       <span style={{color: 'rgb(255, 23, 76)'}} className="font-bold text-sm flex-shrink-0">{idx + 1}.</span>
                       <div>
-                        <h5 className="text-sm font-semibold leading-snug group-hover:text-red-600">{post.title}</h5>
+                        <h5 className="text-sm font-semibold leading-snug group-hover:text-[rgb(255,23,76)]">{post.title}</h5>
                         <p className="text-[10px] text-gray-500 mt-1">{formatDate(post.publishedAt)}</p>
                       </div>
                     </div>
@@ -309,10 +388,10 @@ export default function HomeContent({ posts = [], categories = [], popularPosts 
 
             <div className="bg-white p-4 shadow-sm">
               <h4 style={{backgroundColor: 'rgb(255, 23, 76)'}} className="text-white text-xs font-bold px-3 py-1 inline-block mb-4">
-                लोकप्रिय पोस्ट
+                लोकप्रिय
               </h4>
               <div className="space-y-4">
-                {popularPosts.map((post, idx) => (
+                {sidebarWithImage.map((post, idx) => (
                   <Link key={post._id} href={`/${post.category?.slug?.current}/${post.slug.current}`} className="flex gap-3 border-b pb-3 last:border-none group">
                     <div className="w-20 h-16 relative flex-shrink-0 overflow-hidden">
                       {post.mainImageUrl ? (
@@ -325,7 +404,7 @@ export default function HomeContent({ posts = [], categories = [], popularPosts 
                       </span>
                     </div>
                     <div className="flex-1">
-                      <h5 className="text-sm font-bold leading-tight group-hover:text-red-600">{post.title}</h5>
+                      <h5 className="text-sm font-bold leading-tight group-hover:text-[rgb(255,23,76)]">{post.title}</h5>
                       <small className="text-[10px] text-gray-500">{formatDate(post.publishedAt)}</small>
                     </div>
                   </Link>
